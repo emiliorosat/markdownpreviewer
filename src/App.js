@@ -1,26 +1,80 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import marked from "marked";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import DM from "./defaultMarkdown";
+
+marked.setOptions({
+  breaks: true,
+  sanitize: true
+});
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      markdown: DM
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.parsed = this.parsed.bind(this);
+  }
+
+  handleChange(e) {
+    let va = e.target.value;
+    this.setState(state => ({
+      ...state,
+      markdown: va
+    }));
+  }
+
+  parsed(e) {
+    let str = marked(e);
+    return { __html: str };
+  }
+
+  render() {
+    const { markdown } = this.state;
+
+    return (
+      <div className="App">
+        <div className="container-fluid App-container">
+          <h1>Markdown Converter to HTML</h1>
+          <div className="row w-100">
+            <div className="col">
+              <h3>Editor Markdown</h3>
+              <textarea
+                id="editor"
+                rows="20"
+                value={markdown}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="col">
+              <h3>Viewer HTML</h3>
+              <div
+                id="preview"
+                dangerouslySetInnerHTML={this.parsed(markdown)}
+              />
+            </div>
+          </div>
+        <footer>
+          <p
+            class="text-primary"
+          >
+            <a
+              href="https:emiliort.com"
+              target="_blank"
+              class="text-decoration-none"
+              rel="noopener noreferrer"
+              >
+              By EmilioRT
+            </a>
+          </p>
+        </footer>
+              </div>
+      </div>
+    );
+  }
 }
 
 export default App;
