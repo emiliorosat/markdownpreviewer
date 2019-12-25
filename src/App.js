@@ -57,21 +57,19 @@ class App extends React.Component {
               />
             </div>
           </div>
-        <footer>
-          <p
-            class="text-primary"
-          >
-            <a
-              href="https:emiliort.com"
-              target="_blank"
-              class="text-decoration-none"
-              rel="noopener noreferrer"
+          <footer>
+            <p>
+              <a
+                href="https:emiliort.com"
+                target="_blank"
+                class="text-decoration-none text-secondary me"
+                rel="noopener noreferrer"
               >
-              By EmilioRT
-            </a>
-          </p>
-        </footer>
-              </div>
+                By EmilioRT
+              </a>
+            </p>
+          </footer>
+        </div>
       </div>
     );
   }

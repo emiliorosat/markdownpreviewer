@@ -28,5 +28,8 @@
   width: 100%;
   height: 75vmin;
   overflow: auto;
+}
 
+.me {
+  font-size: 0.85em;
 }
