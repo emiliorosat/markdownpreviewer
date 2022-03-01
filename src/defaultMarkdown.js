@@ -43,7 +43,7 @@ const defaultMarkdown=
   - Even if you use dashes or asterisks.
   * And last but not least, let's not forget embedded images:
   
-  ![React Logo w/ Text](https://goo.gl/Umyytc)
+  ![React Logo w/ Text](https://oneteamsolutions.in/blogoneteam/wp-content/uploads/2020/05/REACT-JS-KOCHI.png)
   `;
 
   
